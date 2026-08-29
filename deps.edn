@@ -1,13 +1,13 @@
 {:paths ["src"]
  :deps {io.github.kotoba-lang/org-ietf-sd-jwt
         {:git/url "https://github.com/kotoba-lang/org-ietf-sd-jwt.git"
-         :git/sha "8e575ed7d26c03793e89792d8ba36286f5e6d2b3"}
+         :git/sha "a1bb8817c360d07d174ac1bc1cef78d4ce20decb"}
         io.github.kotoba-lang/org-ietf-jws
         {:git/url "https://github.com/kotoba-lang/org-ietf-jws.git"
-         :git/sha "6931dd3125ff1d933d895ba3478002da831c1196"}
+         :git/sha "858c577db273591b34d0d557e3ab84dd2765e004"}
         io.github.kotoba-lang/io-multiformats
         {:git/url "https://github.com/kotoba-lang/io-multiformats.git"
-         :git/sha "37843825a77bc6b74f4a1882471d252f6f931f58"}}
+         :git/sha "561fe7dfada3db852b127f06d41750dabd3cead9"}}
  :aliases
  {:test {:extra-paths ["test"]
          :extra-deps {io.github.cognitect-labs/test-runner
