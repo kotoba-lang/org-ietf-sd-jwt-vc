@@ -7,7 +7,7 @@
 ;;
 ;;   npm install && npm run smoke
 (ns nbb-smoke
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [jws.core]
             [sd-jwt.core :as sd]
             [sd-jwt-vc.core :as vc]))
