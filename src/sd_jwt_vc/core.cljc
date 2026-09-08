@@ -31,7 +31,7 @@
    `dc+sd-jwt` for the Issuer-signed JWT, `kb+jwt` for the Key Binding JWT. The
    older `vc+sd-jwt` is accepted on verification during the transition the draft
    allows, and never produced."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [jws.core :as jws]
             [multiformats.core :as mf]
             [sd-jwt.core :as sd]))

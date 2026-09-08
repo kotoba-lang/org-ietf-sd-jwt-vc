@@ -1,6 +1,6 @@
 (ns sd-jwt-vc.core-test
   (:require [clojure.data.json :as json]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is testing]]
             [ed25519.core :as ed]
             [jws.core]
