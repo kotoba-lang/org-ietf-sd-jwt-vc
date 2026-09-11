@@ -42,8 +42,8 @@ minted for another purpose under the same key could be presented as a credential
 ## Test
 
 ```bash
-clojure -M:dev:test              # JVM — real Ed25519 for both issuer and holder
-clojure -M:lint
+kbb -M:dev:test              # JVM — real Ed25519 for both issuer and holder
+kbb -M:lint
 npm install && npm run smoke     # the :cljs branch
 ```
 
