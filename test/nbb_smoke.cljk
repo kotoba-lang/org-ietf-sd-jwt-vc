@@ -47,7 +47,7 @@
 (println "sd-jwt-vc :cljs smoke")
 
 ;; The cross-host invariant: sd_hash over a fixed presentation prefix. Pinned
-;; identically in test/sd_jwt_vc/core_test.clj.
+;; identically in test/sd_jwt_vc/core_test.cljk.
 (check "sd_hash over a fixed prefix"
        "_00mjj_YhwRTfK_jKgm8mqjuxlcnaupJJ_Ehm-A4Au4"
        (vc/sd-hash "JWT~d1~d2~"))
