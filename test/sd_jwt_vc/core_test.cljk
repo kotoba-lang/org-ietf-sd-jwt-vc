@@ -139,7 +139,7 @@
 
 (def cross-host-sd-hash
   "sd_hash over a fixed presentation prefix, pinned identically here and in
-   test/nbb_smoke.cljs.
+   test/nbb_smoke.cljk.
 
    §4.3.1 hashes the US-ASCII bytes of that prefix, so if the hosts encode them
    differently a Holder on one produces a proof a Verifier on the other rejects as
