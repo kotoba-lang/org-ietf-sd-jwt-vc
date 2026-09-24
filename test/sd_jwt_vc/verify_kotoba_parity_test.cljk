@@ -37,8 +37,8 @@
 ;;   * `an-untyped-token-is-not-a-credential` — RFC 8725.
 
 (ns sd-jwt-vc.verify-kotoba-parity-test
-  (:require [clojure.data.json :as json]
-            [clojure.java.io :as io]
+  (:require [kotoba.bytes :as kbytes] [clojure.data.json :as json]
+            [kotoba.io :as io]
             [kotoba.lang.text :as str]
             [kotoba.test :refer [deftest is testing]]
             [kotoba.compiler.core :as compiler]
@@ -111,8 +111,7 @@
                 {kbh :header kbp :payload} (decode-jwt kb)
                 ;; Hashed over the prefix THE GUEST produced.
                 computed (mf/base64url
-                          (mf/sha256 (.getBytes ^String (call 'presentation-prefix [s2])
-                                                "UTF-8")))
+                          (mf/sha256 (kbytes/utf8-bytes ^String (call 'presentation-prefix [s2]))))
                 s3 (call 'offer-key-binding
                          [s2 (->doc {:verified? (verified-jws? kb)
                                      :typ (get kbh "typ" "")
@@ -169,7 +168,7 @@
 ;; --- the tests ---------------------------------------------------------------
 
 (deftest guest-source-is-present
-  (is (.exists guest-file) (str "kotoba object not found at " guest-file)))
+  (is (io/exists? guest-file) (str "kotoba object not found at " guest-file)))
 
 (deftest a-presentation-without-key-binding-verifies
   (let [{:keys [issuer-jwt disclosures]} (issued)
@@ -195,7 +194,7 @@
       (testing "and it is byte-identical to what the oracle hashes"
         (is (= (vc/presentation-prefix issuer-jwt disclosures) prefix))
         (is (= (vc/sd-hash prefix)
-               (mf/base64url (mf/sha256 (.getBytes ^String prefix "UTF-8")))))))))
+               (mf/base64url (mf/sha256 (kbytes/utf8-bytes ^String prefix)))))))))
 
 (deftest the-kb-jwt-is-not-part-of-what-it-signs
   (testing "the other half of §4.3.1 -- a prefix that included the KB-JWT
