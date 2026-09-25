@@ -37,7 +37,7 @@
 ;;   * `an-untyped-token-is-not-a-credential` — RFC 8725.
 
 (ns sd-jwt-vc.verify-kotoba-parity-test
-  (:require [kotoba.bytes :as kbytes] [clojure.data.json :as json]
+  (:require [kotoba.bytes :as kbytes] [kotoba.json :as json]
             [kotoba.io :as io]
             [kotoba.lang.text :as str]
             [kotoba.test :refer [deftest is testing]]
